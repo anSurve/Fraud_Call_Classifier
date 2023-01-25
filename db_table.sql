@@ -1,0 +1,18 @@
+DROP TABLE IF EXISTS numbers;
+DROP TABLE IF EXISTS submissions;
+
+CREATE TABLE numbers (
+    number INTEGER PRIMARY KEY,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    reported_no INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE TABLE submissions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    number INTEGER NOT NULL,
+    filename TEXT NOT NULL,
+    transcript_id TEXT,
+    is_processed CHAR NOT NULL DEFAULT 'N',
+    transcript_name TEXT
+);
